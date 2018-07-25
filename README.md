@@ -5,11 +5,11 @@ Running locally:
 ```
 skaffold dev
 
-minikube service sleeper
+minikube service alpha
 ```
 
 CI build/docker push:
 
 ```
-export TAG=1.0 && skaffold build -p ci
+export TAG=1.4 && skaffold build -p ci
 ```
