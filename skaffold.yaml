@@ -1,0 +1,20 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  artifacts:
+  - imageName: alpha
+deploy:
+  kubectl:
+    manifests:
+      - alpha.yaml
+
+profiles:
+  - name: ci
+    build:
+      tagPolicy:
+        envTemplate:
+          template: "{{.IMAGE_NAME}}:{{.TAG}}"
+      artifacts:
+        - imageName: n3a1/alpha
+      local:
+        skipPush: false
